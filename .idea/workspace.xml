@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ea7504e-70db-423d-b0d5-38871b770ecb" name="Changes" comment="Completado primer codelab hasta el 8">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6ea7504e-70db-423d-b0d5-38871b770ecb" name="Changes" comment="comenzado animaciones">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,13 +84,22 @@
       <option name="project" value="LOCAL" />
       <updated>1732108135357</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="comenzado animaciones">
+      <option name="closed" value="true" />
+      <created>1732110942723</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732110942723</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="columna coso" />
     <MESSAGE value="Completado primer codelab hasta el 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completado primer codelab hasta el 8" />
+    <MESSAGE value="comenzado animaciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="comenzado animaciones" />
   </component>
 </project>
