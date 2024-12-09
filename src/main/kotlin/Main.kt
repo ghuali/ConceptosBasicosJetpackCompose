@@ -1,3 +1,4 @@
+import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
@@ -7,6 +8,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.Icons.Filled
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -73,24 +78,50 @@ fun Fila(texto:String, modifier: Modifier = Modifier){
     var expand = rememberSaveable { mutableStateOf(false) }
     val expandPadding by animateDpAsState(
         if (expand.value) 70.dp else 0.dp,
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
-        )
     )
     val currentPadding = expandPadding.coerceAtLeast(0.dp)
-    Row (modifier = Modifier.background(Color.Yellow).fillMaxWidth().padding(15.dp, bottom = currentPadding), verticalAlignment = Alignment.CenterVertically){
-        Text(
-            text = texto,
-            color = Color.Magenta,
-            modifier = Modifier.weight(1f)
-        )
-        Button(
-            onClick = { expand.value = !expand.value },
-            modifier = Modifier.padding(10.dp)
-        ) {
-            Text(if (expand.value) "Show less" else "Show more")
+    Column (modifier = Modifier
+        .background(Color.Yellow)
+        .fillMaxWidth()
+        .padding(15.dp)
+        .animateContentSize (
+            animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessLow
+            )
+        ),
+    ){
+        Row {
+            Text(
+                text = texto,
+                color = Color.Magenta,
+                modifier = Modifier.weight(1f)
+            )
+            IconButton(
+                onClick = { expand.value = !expand.value },
+                modifier = Modifier.padding(bottom = currentPadding)
+            ) {
+                Icon(
+                    imageVector = if (expand.value) Filled.KeyboardArrowDown else Filled.KeyboardArrowUp,
+                    contentDescription =
+                        if (expand.value) {
+                            "Mostar menos"
+                        } else {
+                            "Mostrar más"
+                        }
+                )
+            }
         }
+        Row {
+            if (expand.value) {
+                Text(
+                    text = ("Texto aleatorio1, " +
+                            "Texto aleatorio2. ").repeat(4),
+                )
+            }
+        }
+
+
     }
 }
 
